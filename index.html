@@ -21,6 +21,10 @@
         </h2>
         <h1>Javascript Game Engine Safari
         </h1>
+      
+        <img class="img-right" src="safaristuff/nigel.png" />
+        
+       
         <p class="attribution">By Jesse + Amanda Harlin</p>
     </header>
 
@@ -45,7 +49,7 @@
 
         <section class="slide" title="Why?">
             <h2>Why?</h2>
-            <p class="delayed">Not long ago I became enchanted witht he idea of making a game in the browser, and so did Amanda, my wife</p>
+            <p class="delayed">Not long ago I became enchanted with the idea of making a game in the browser, and so did Amanda, my wife</p>
             <p class="delayed">I'm trying to save you a bit of time. there were a lot of missteps along the way.</p>
         </section>
 
@@ -86,10 +90,6 @@
             </ul>
         </section>
     </section>
-
-
-
-
 
     <section>
         <section title="Unity">
@@ -137,6 +137,9 @@
             <section class="slide">
 
                 <h2>How about a Dom Based Solution?</h2>
+                <div width="100%" height="204px; ">
+                    <iframe style="border: 0; overflow: hidden; margin: 0 auto; display: block" src="http://gamequeryjs.com//demos/4/iframe.html" frameborder="0" scrolling="no" width="804px" height="204px" style="width: 804px;"></iframe>
+                </div>
 
             </section>
             <section class="slide">
@@ -145,16 +148,31 @@
                     <li class="delayed">Works witht he Dom, so thats kinda cool</li>
                     <li class="delayed">Can use css3, tables, divs, input elements...</li>
                     <li class="delayed">..and jQuery ui, bootstrap, and os on.</li>
+                    <li class="delayed">Spritmap support</li>
                 </ul>
             </section>
             <section class="slide">
-                
-                
-                
-
+                <iframe src="http://jesseharlin.github.io/GameQueryEngineExperiment/"></iframe>
             </section>
-        </section>
+            <section class="slide">
+                <h2>Drawbacks</h2>
+                <ul>
+                    <li class="delayed">Performance!</li>
+                    <li class="delayed">Some stange decisions in the engine.</li>
+                    <li class="delayed">
+                        <ul>
+                            <li class="delayed-children">The guy like, reinvented jQuery sleectors? Why? </li>
+                            <li class="delayed-children">forced to use marked classes for groups</li>
+                            <li class="delayed-children">Did nto properly extend the jQuery plugin metaphor</li>
+                            <li class="delayed-children">Collision system is insanely bad. </li>
+                            <li class="delayed-children">Generally no clear design pattern. :( </li>
+                        </ul>
+                    </li>
+                    <li class="delayed">No activity in a while from author. My friend ben did fix some bugs though! [global position and relative position]</li>
+                </ul>
+            </section>
 
+        </section>
 
         <section title="Crafty">
 
@@ -162,35 +180,130 @@
             <section class="slide">
 
                 <h2>Crafty</h2>
+                <img src="content/craftylogo.png" />
 
             </section>
+            <section class="slide">
+                <h2>Dom or Canvas? Lets look!</h2>
 
-
-        </section>
-
-        <section title="Processing">
-
+            </section>
+            <section class="slide">
+                <h2>Pros</h2>
+                <ul>
+                    <li class="delayed">Canvas or Dom!</li>
+                    <li class="delayed">Small... ish</li>
+                    <li class="delayed">"Entity Component System" /shrug</li>
+                    <li class="delayed">Collision Detection was improvement over gameQuery</li>
+                    <li class="delayed"><a href="http://craftyjs.com/api/">documentation></a>!</li>
+                    <li class="delayed">Module/component system</li>
+                </ul>
+            </section>
 
             <section class="slide">
 
-                <h2>Processing</h2>
+                <iframe src="http://craftyjs.com/demos/isometric/"></iframe>
 
             </section>
+            <section class="slide">
+                <div class="code-snippet" style="">
+                    <pre><code lang="javascript">
+                    
+                    Crafty.scene("main", function() {
+                      generateWorld();
+                      Crafty.c('CustomControls', {
+                        __move: {left: false, right: false, up: false, down: false},    
+                        _speed: 3,
 
+                        CustomControls: function(speed) {
+                          if (speed) this._speed = speed;
+                          var move = this.__move;
 
+                          this.bind('enterframe', function() {
+                            // Move the player in a direction depending on the booleans
+                            // Only move the player in one direction at a time (up/down/left/right)
+                            if (move.right) this.x += this._speed; 
+                            else if (move.left) this.x -= this._speed; 
+                            else if (move.up) this.y -= this._speed;
+                            else if (move.down) this.y += this._speed;
+                          }).bind('keydown', function(e) {
+                            // Default movement booleans to false
+                            move.right = move.left = move.down = move.up = false;
+
+                            // If keys are down, set the direction
+                            if (e.keyCode === Crafty.keys.RA) move.right = true;
+                            if (e.keyCode === Crafty.keys.LA) move.left = true;
+                            if (e.keyCode === Crafty.keys.UA) move.up = true;
+                            if (e.keyCode === Crafty.keys.DA) move.down = true;
+
+                            this.preventTypeaheadFind(e);
+                          }).bind('keyup', function(e) {
+                            // If key is released, stop moving
+                            if (e.keyCode === Crafty.keys.RA) move.right = false;
+                            if (e.keyCode === Crafty.keys.LA) move.left = false;
+                            if (e.keyCode === Crafty.keys.UA) move.up = false;
+                            if (e.keyCode === Crafty.keys.DA) move.down = false;
+
+                            this.preventTypeaheadFind(e);
+                          });
+
+                          return this;
+                        }
+                      });
+
+                      // Create our player entity with some premade components
+                      var player = Crafty.e("2D, DOM, player, controls, CustomControls, animate, collision")
+                        .attr({x: 160, y: 144, z: 1})
+                        .CustomControls(1)
+                        .animate("walk_left", 6, 3, 8)
+                        .animate("walk_right", 9, 3, 11)
+                        .animate("walk_up", 3, 3, 5)
+                        .animate("walk_down", 0, 3, 2);
+                    });
+
+                </code></pre>
+                </div>
+            </section>
+            <section class="slide">
+                <h2>Cons</h2>
+                <ul>
+
+                    <li class="delayed">Has issues with cascading and rotation</li>
+                    <li class="delayed">Entirely dependent on a sort of component mixin patter + queries</li>
+                    <li class="delayed">The tutorials examples we found, didnt relaly line up with the working examples</li>
+                </ul>
+            </section>
         </section>
-
-
 
         <section title="Akihabara">
 
-
             <section class="slide">
-
                 <h2>Akihabara</h2>
+            </section>
+            <section class="slide">
+                <h2>Pros</h2>
+                <ul>
 
+                    <li class="delayed">Working Exmaples in existance</li>
+                    <li class="delayed">Free/ Mit Liscence. Examples of overhead stuff</li>
+                    <li class="delayed">Collision was handled more nicely than other things, in a way i'd expect</li>
+                    <li class="delayed">Ask me about my : Retro shining weaboo otaku kawaii-chan-san pixel-art love blast-off</li>
+                </ul>
+            </section>
+            <section class="slide">
+                <div id="akihabaraexample" class="demo-container" height="650px">
+                </div>
+                <button id="loadAkihabara" type="button">Load</button>
+                <button id="killAkihabara" type="button">Kill</button>
             </section>
 
+            <section class="slide">
+                <h2>Cons</h2>
+                <ul>
+
+                    <li class="delayed">We got hung up between 2 code versions</li>
+                    <li class="delayed">Documentation was often wrong or missing</li>
+                </ul>
+            </section>
 
         </section>
 
@@ -203,11 +316,32 @@
                 <h2>Impact Js</h2>
 
             </section>
+            <section class="slide">
+                <h2>Pros</h2>
+                <ul>
+                    <li class="delayed">Weltmeister</li>
+                    <li class="delayed">Its just freaking good.</li>
+                </ul>
+            </section>
+            <section class="slide">
+                <div id="impact-zone" class="demo-container" style="height: 770px">
+                </div>
+                <button id="impact-clear" type="button">Clear</button>
+                <button id="impact-capstone" type="button">Load Capstone</button>
+                <button id="impact-okcjs" type="button">Load Okcjs Game</button>
+                <button id="impact-chamber" type="button">Load Chamber</button>
+            </section>
 
-
+            <section class="slide">
+                <h2>Cons</h2>
+                <ul>
+                    <li class="delayed">You have to pay.</li>
+                    <li class="delayed">Possibly slower than some other engines.</li>
+                </ul>
+            </section>
+            <section class="slide">
+            </section>
         </section>
-
-
     </section>
 
 
@@ -215,9 +349,14 @@
 
 
     <!--Conclusions-->
-
     <section>
+        <section class="slide">
+            <h2>Closing Thoughts</h2>
+        </section>
+
+
     </section>
+
 
 
 
@@ -264,6 +403,59 @@
 
 
             });
+
+
+
+
+            /*Abstract to method, makes this easier*/
+
+
+            var $akihabaraExample = $('#akihabaraexample');
+            var $loadAkihabaraExample = $('#loadAkihabara').click(function () {
+                $akihabaraExample.html('<iframe src="http://amandaharlin.github.io/timideleos/" style="width: 650px; height: 550px;overflow:visible; margin-top:50px;"></iframe>');
+            });
+            var $hoseAkihabaraExample = $('#killAkihabara').click(function () {
+                $akihabaraExample.html('');
+            });;
+
+
+
+
+            var $impactZone = $('#impact-zone');
+            var $impactClear = $('#impact-clear');
+            var $impactCapstone = $('#impact-capstone');
+            var $impactOkcjs = $('#impact-okcjs');
+            var $impactChamber = $('#impact-chamber');
+
+
+            var $slug = $('<iframe src="" style="width: 100%; height: 100%;overflow:visible;"></iframe>');
+
+            $impactClear.click(function () {
+                $impactZone.html('');
+            });
+
+
+            $impactCapstone.click(function () {
+
+                $slug.attr('src', "http://amandaharlin.github.io/CapstoneTheGame/");
+                $impactZone.html($slug);
+
+            });
+
+            $impactOkcjs.click(function () {
+
+                $slug.attr('src', "http://jesseharlin.github.io/okcjsImpactExample/");
+                $impactZone.html($slug);
+
+            });
+
+            $impactChamber.click(function () {
+
+                $slug.attr('src', "http://jesseharlin.github.io/impactlevelgen/");
+                $impactZone.html($slug.css({ 'background-color': 'white' }));
+
+            });
+
 
 
         });

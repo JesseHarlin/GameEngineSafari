@@ -1,0 +1,92 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="2033" measuredH="1024" mockupW="1471" mockupH="1011">
+  <controls>
+    <control controlID="4" controlTypeID="__group__" x="562" y="13" w="1471" h="1011" measuredW="1471" measuredH="1011" zOrder="0" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="3" controlTypeID="__group__" x="0" y="0" w="1471" h="1011" measuredW="1471" measuredH="1011" zOrder="0" locked="false" isInGroup="4">
+          <groupChildrenDescriptors>
+            <control controlID="0" controlTypeID="__group__" x="0" y="0" w="1471" h="1011" measuredW="1471" measuredH="1011" zOrder="0" locked="false" isInGroup="3">
+              <groupChildrenDescriptors>
+                <control controlID="7" controlTypeID="__group__" x="0" y="0" w="1471" h="1011" measuredW="1471" measuredH="1011" zOrder="0" locked="false" isInGroup="0">
+                  <groupChildrenDescriptors>
+                    <control controlID="3" controlTypeID="__group__" x="0" y="0" w="1471" h="1011" measuredW="1471" measuredH="1011" zOrder="0" locked="false" isInGroup="7">
+                      <groupChildrenDescriptors>
+                        <control controlID="0" controlTypeID="__group__" x="0" y="0" w="1471" h="1011" measuredW="1471" measuredH="1011" zOrder="0" locked="false" isInGroup="3">
+                          <groupChildrenDescriptors>
+                            <control controlID="0" controlTypeID="__group__" x="0" y="0" w="1471" h="1011" measuredW="1471" measuredH="1011" zOrder="0" locked="false" isInGroup="0">
+                              <groupChildrenDescriptors>
+                                <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="0" y="0" w="1471" h="1011" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="0">
+                                  <controlProperties>
+                                    <text>Trammell%20Rentals%0Ahttp%3A//trammellrentals.com</text>
+                                  </controlProperties>
+                                </control>
+                              </groupChildrenDescriptors>
+                            </control>
+                          </groupChildrenDescriptors>
+                        </control>
+                        <control controlID="1" controlTypeID="com.balsamiq.mockups::Image" x="2" y="72" w="1466" h="450" measuredW="500" measuredH="333" zOrder="1" locked="false" isInGroup="3">
+                          <controlProperties>
+                            <src>http%3A//farm4.staticflickr.com/3228/2671889067_564e0b7212.jpg</src>
+                            <text/>
+                          </controlProperties>
+                        </control>
+                      </groupChildrenDescriptors>
+                    </control>
+                  </groupChildrenDescriptors>
+                </control>
+              </groupChildrenDescriptors>
+            </control>
+          </groupChildrenDescriptors>
+        </control>
+        <control controlID="4" controlTypeID="com.balsamiq.mockups::Title" x="8" y="85" w="-1" h="-1" measuredW="314" measuredH="43" zOrder="1" locked="false" isInGroup="4">
+          <controlProperties>
+            <color>16777215</color>
+            <text>Trammell%20Rentals</text>
+          </controlProperties>
+        </control>
+        <control controlID="5" controlTypeID="com.balsamiq.mockups::MenuBar" x="337" y="92" w="1134" h="29" measuredW="328" measuredH="29" zOrder="2" locked="false" isInGroup="4">
+          <controlProperties>
+            <borderStyle>none</borderStyle>
+            <text>Property%20Rentals%2C%20Rental%20Application%2C%20Contact</text>
+          </controlProperties>
+        </control>
+        <control controlID="6" controlTypeID="com.balsamiq.mockups::Button" x="1251" y="437" w="178" h="70" measuredW="129" measuredH="27" zOrder="3" locked="false" isInGroup="4">
+          <controlProperties>
+            <text>View%20Rentals%20Now</text>
+          </controlProperties>
+        </control>
+        <control controlID="7" controlTypeID="com.balsamiq.mockups::CheckBoxGroup" x="36" y="138" w="-1" h="-1" measuredW="158" measuredH="369" zOrder="4" locked="false" isInGroup="4">
+          <controlProperties>
+            <color>16777215</color>
+            <text>Bedrooms%3A%0A1%0A2%0A3%0A%20%0ABathrooms%3A%0A1%0A2%0A3%0A%20%0A%5B%20%5D%20not%20selected%0A%5Bx%5D%20selected%0A%5B-%5D%20indeterminate%0A-%5B%20%5D%20disabled-%0A-%5Bx%5D%20disabled%20selected-%0A-%5B-%5D%20disabled%20indeterminate-%0AA%20row%20without%20a%20checkbox</text>
+          </controlProperties>
+        </control>
+        <control controlID="8" controlTypeID="com.balsamiq.mockups::DateChooser" x="645" y="326" w="-1" h="-1" measuredW="207" measuredH="25" zOrder="5" locked="false" isInGroup="4">
+          <controlProperties>
+            <text>%20%206/20/13%20%20%20%20moving-in%20date</text>
+          </controlProperties>
+        </control>
+        <control controlID="9" controlTypeID="com.balsamiq.mockups::HSlider" x="296" y="196" w="237" h="-1" measuredW="33" measuredH="11" zOrder="6" locked="false" isInGroup="4">
+          <controlProperties>
+            <state>up</state>
+            <value>50</value>
+          </controlProperties>
+        </control>
+        <control controlID="10" controlTypeID="com.balsamiq.mockups::HSlider" x="296" y="242" w="237" h="-1" measuredW="33" measuredH="11" zOrder="7" locked="false" isInGroup="4">
+          <controlProperties>
+            <value>50</value>
+          </controlProperties>
+        </control>
+        <control controlID="11" controlTypeID="com.balsamiq.mockups::Label" x="259" y="191" w="-1" h="-1" measuredW="25" measuredH="21" zOrder="8" locked="false" isInGroup="4">
+          <controlProperties>
+            <text>Max</text>
+          </controlProperties>
+        </control>
+        <control controlID="12" controlTypeID="com.balsamiq.mockups::Label" x="259" y="237" w="-1" h="-1" measuredW="21" measuredH="21" zOrder="9" locked="false" isInGroup="4">
+          <controlProperties>
+            <text>Min</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+  </controls>
+</mockup>
